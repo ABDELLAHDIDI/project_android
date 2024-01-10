@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profil">
+
+
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="733dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp">
+
+        <!-- Titre -->
+
+        <!-- Informations générales -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/profile_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+            <EditText
+                android:id="@+id/t_nom"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_name" />
+        </LinearLayout>
+
+        <!-- Prénom -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="67dp"
+                android:layout_height="wrap_content"
+                android:text="@string/surname" />
+
+            <EditText
+                android:id="@+id/t_prenom"
+                android:layout_width="314dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_surname" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="67dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="@string/email" />
+
+            <TextView
+                android:id="@+id/t_email"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:hint="@string/enter_email" />
+        </LinearLayout>
+
+        <!-- Type -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="68dp"
+                android:layout_height="wrap_content"
+                android:text="@string/type" />
+
+            <Spinner
+                android:id="@+id/t_type"
+                android:layout_width="317dp"
+                android:layout_height="41dp"
+                android:entries="@array/type_options"
+                android:prompt="@string/select_type" />
+
+        </LinearLayout>
+
+        <!--        Filiere -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="67dp"
+                android:layout_height="wrap_content"
+                android:text="@string/filiere" />
+
+            <EditText
+                android:id="@+id/t_filiere"
+                android:layout_width="318dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_filiere" />
+        </LinearLayout>
+
+
+        <!-- Bouton pour afficher les Formations -->
+
+        <!-- Bouton pour afficher les Expériences -->
+        <LinearLayout
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/b_formation"
+                android:layout_width="192dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:onClick="Formations"
+                android:text="@string/formations_button" />
+
+            <Button
+                android:id="@+id/b_diplome"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="Diplomes"
+                android:text="@string/diplome_button" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="393dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+
+            <!-- Utilisez un bouton pour "Stage" -->
+            <Button
+                android:id="@+id/b_experience"
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:onClick="Experiences"
+                android:text="@string/experiences_button" />
+
+            <Button
+                android:id="@+id/b_stage"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:onClick="Stages"
+                android:text="@string/stage_button" />
+
+        </LinearLayout>
+
+        <!-- Utilisez un bouton pour "Compétences Linguistiques" -->
+        <LinearLayout
+            android:layout_width="314dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/b_competences"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:onClick="Competences"
+                android:text="@string/competences_button" />
+        </LinearLayout>
+
+
+        <!-- Bouton pour afficher les Compétences Techniques -->
+
+        <!-- Bouton pour afficher les Centres d'Intérêts -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/b_technique"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:onClick="Techniques"
+                android:text="@string/technical_skills_button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/b_interet"
+                android:layout_width="303dp"
+                android:layout_height="wrap_content"
+                android:onClick="Interets"
+                android:text="@string/interests_button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="375dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/b_update"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="Update"
+                android:text="@string/update_Profil" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

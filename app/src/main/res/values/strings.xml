@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Profile_projet</string>
+
+
+    <string name="profile_title">Profil de l\'Ingénieur</string>
+    <string name="general_info">Informations Générales</string>
+    <string name="name">Nom:</string>
+    <string name="surname">Prénom:</string>
+    <string name="enter_name">Entrez votre nom</string>
+    <string name="enter_surname">Entrez votre prénom</string>
+    <string name="email">E-mail:</string>
+    <string name="type">Type:</string>
+    <string name="enter_email">Entrez votre adresse e-mail</string>
+    <string name="select_type">Auriat,Étudiant</string>
+    <string-array name="type_options">
+        <item>Lauréat</item>
+        <item>Étudiant</item>
+    </string-array>
+    <string name="filiere">Filière</string>
+    <string name="enter_filiere">Entrez la filière</string>
+
+    <string name="stage_button">Stage</string>
+    <string name="competences_button">Compétences Linguistiques</string>
+    <string name="formations">Formations</string>
+    <string name="diplome_button">Diplôme</string>
+    <string name="experiences">Expériences</string>
+    <string name="technical_skills">Compétences Techniques</string>
+    <string name="interests">Centres d\'Intérêts</string>
+    <string name="formations_button">Gérer Formations</string>
+    <string name="experiences_button">Gérer Expériences</string>
+    <string name="technical_skills_button">Gérer Compétences Techniques</string>
+    <string name="interests_button">Gérer Centres d\'Intérêts</string>
+    <string name="update_Profil">Mettre à jour</string>
+
+
+<!--    Formation -->
+
+    <string name="libelle_label">Libellé:</string>
+    <string name="enter_libelle">Entrez le libellé</string>
+
+    <string name="annee_label">Année:</string>
+    <string name="enter_annee">Entrez l\'année</string>
+
+    <string name="institue_label">Institut:</string>
+    <string name="enter_institue">Entrez l\'institut</string>
+
+
+</resources>

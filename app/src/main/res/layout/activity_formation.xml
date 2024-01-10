@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Formation">
+
+
+
+
+    <!-- activity_formation.xml -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Ajouter Formation Section -->
+        <TextView
+            android:id="@+id/tvAddFormation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter une Formation"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edtAddLibelle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Libellé"/>
+
+        <EditText
+            android:id="@+id/edtAddAnnee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Année"/>
+
+        <EditText
+            android:id="@+id/edtAddInstitue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Institut"/>
+
+        <Button
+            android:id="@+id/btnAjouterFormation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter Formation"
+            android:layout_marginTop="8dp"
+            android:onClick="Add"/>
+
+        <!-- Liste des Formations -->
+
+        <ListView
+            android:id="@+id/listViewFormations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

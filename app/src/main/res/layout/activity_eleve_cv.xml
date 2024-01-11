@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgIcone"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/omar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/txtId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgIcone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="ID"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtId"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Nom"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtPrenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtNom"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Prénom"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtPrenom"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Age"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtAge"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Email"
+            android:textSize="18sp" />
+
+        <!-- Add additional TextViews or other views for more information -->
+
+    </RelativeLayout>
+</ScrollView>

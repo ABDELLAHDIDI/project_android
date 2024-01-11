@@ -2,47 +2,48 @@
     <string name="app_name">Profile_projet</string>
 
 
-    <string name="profile_title">Profil de l\'Ingénieur</string>
-    <string name="general_info">Informations Générales</string>
+    <string name="profile_title">Profil de l\'Ing\énieur</string>
+    <string name="general_info">Informations G\én\érales</string>
     <string name="name">Nom:</string>
-    <string name="surname">Prénom:</string>
+    <string name="surname">Pr\énom:</string>
     <string name="enter_name">Entrez votre nom</string>
-    <string name="enter_surname">Entrez votre prénom</string>
+    <string name="enter_surname">Entrez votre pr\énom</string>
     <string name="email">E-mail:</string>
-    <string name="type">Type:</string>
+    <string name="age">Age:</string>
+
     <string name="enter_email">Entrez votre adresse e-mail</string>
-    <string name="select_type">Auriat,Étudiant</string>
-    <string-array name="type_options">
-        <item>Lauréat</item>
-        <item>Étudiant</item>
-    </string-array>
-    <string name="filiere">Filière</string>
-    <string name="enter_filiere">Entrez la filière</string>
+    <string name="enter_age">Entrer l\'age</string>
+
+    <string name="filiere">Fili\ère</string>
+    <string name="enter_filiere">Entrez la fili\ère</string>
 
     <string name="stage_button">Stage</string>
-    <string name="competences_button">Compétences Linguistiques</string>
+    <string name="competences_button">Comp\étences Linguistiques</string>
     <string name="formations">Formations</string>
-    <string name="diplome_button">Diplôme</string>
-    <string name="experiences">Expériences</string>
-    <string name="technical_skills">Compétences Techniques</string>
-    <string name="interests">Centres d\'Intérêts</string>
-    <string name="formations_button">Gérer Formations</string>
-    <string name="experiences_button">Gérer Expériences</string>
-    <string name="technical_skills_button">Gérer Compétences Techniques</string>
-    <string name="interests_button">Gérer Centres d\'Intérêts</string>
-    <string name="update_Profil">Mettre à jour</string>
+    <string name="diplome_button">Dipl\ôme</string>
+    <string name="experiences">Exp\ériences</string>
+    <string name="technical_skills">Comp\étences Techniques</string>
+    <string name="interests">Centres d\'Int\ér\êts</string>
+    <string name="formations_button">Vers Formations</string>
+    <string name="experiences_button">G\érer Exp\ériences</string>
+    <string name="technical_skills_button">G\érer Comp\étences Techniques</string>
+    <string name="interests_button">G\érer Centres d\'Int\ér\êts</string>
+    <string name="Retour_Profil">Retour</string>
 
 
 <!--    Formation -->
 
-    <string name="libelle_label">Libellé:</string>
-    <string name="enter_libelle">Entrez le libellé</string>
+    <string name="libelle_label">Libell\é:</string>
+    <string name="enter_libelle">Entrez le libell\é</string>
 
-    <string name="annee_label">Année:</string>
-    <string name="enter_annee">Entrez l\'année</string>
+    <string name="annee_label">Annee:</string>
+    <string name="enter_annee">Entrez l\'ann\ée</string>
 
     <string name="institue_label">Institut:</string>
     <string name="enter_institue">Entrez l\'institut</string>
 
+
+    <string name="retour">Retour</string>
+    <string name="aller_diplome">vers diplome</string>
 
 </resources>

@@ -28,7 +28,7 @@ public class FormationContract extends SQLiteOpenHelper {
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public FormationContract(Context context) {
-        super(context, DATABASE_NAME, null, 8);
+        super(context, DATABASE_NAME, null, 9);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class FormationContract extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertFormation(String libelle, String annee, String institue, String profilID) {
+    public boolean insertFormation(String libelle, String annee, String institue, int profilID) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(col_2, libelle);
@@ -58,6 +58,21 @@ public class FormationContract extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
+    public Cursor getAllFormationsById(int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        System.out.println("getProfileById(String id)  :  ***************************************************************************++\n"
+        + id);
+        String[] columns = { col_2, col_3, col_4}  ;
+
+
+        return  db.query(TABLE_NAME, columns, "ProfileID=?",
+                new String[]{id+""}, null, null, null);
+
+    }
+
+
     public boolean updateFormation(String id, String libelle, String annee, String institue) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -69,8 +84,10 @@ public class FormationContract extends SQLiteOpenHelper {
         return true;
     }
 
-    public Integer deleteFormation(String id) {
+    public Integer deleteFormation(String Libelle,String Annee,String Institue) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, col_1 + "=?", new String[]{id});
+        String[] col = new String[]{};
+        System.out.println("deleteFormation(String Libelle,String Annee,String Institue) ****************\n");
+        return db.delete(TABLE_NAME,  col_2+"=? AND " +col_3+"=? AND " +col_4+"=?", new String[]{Libelle,Annee,Institue});
     }
 }

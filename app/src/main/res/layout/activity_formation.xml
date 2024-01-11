@@ -58,7 +58,27 @@
         <ListView
             android:id="@+id/listViewFormations"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="409dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="177dp"
+                android:layout_height="wrap_content"
+                android:onClick="retour"
+                android:text="@string/retour" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="vers_diplome"
+                android:text="@string/aller_diplome" />
+        </LinearLayout>
 
     </LinearLayout>
 

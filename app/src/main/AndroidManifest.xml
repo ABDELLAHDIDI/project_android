@@ -16,6 +16,12 @@
             android:name=".EleveCVActivity"
             android:exported="false" />
         <activity
+            android:name=".Profil"
+            android:exported="false" />
+        <activity
+            android:name=".Formation"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

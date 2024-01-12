@@ -69,18 +69,26 @@ public class Profil extends AppCompatActivity {
         db_Profile = new ProfileContract(this);
 
 
-        Toast.makeText(Profil.this, "onCreate",
+
+
+        id=getIntent().getIntExtra("id" , 0);
+
+        Toast.makeText(Profil.this, "onCreate \n"+id,
                 Toast.LENGTH_SHORT).show();
-      //  AddProfil();
+
        GetProfil();
 
     }
 
 
     public void AddProfil() {
+
         boolean
                 isInserted = db_Profile.insertProfile(
-                "DIDI","ABDELLAH","abdellah@gmail.com",23 ,"GINF");
+                tNom.getText().toString(),tPrenom.getText().toString()
+                ,tEmail.getText().toString(), Integer.parseInt(tAge.getText().toString())
+                ,tFiliere.getText().toString()
+        );
         if (isInserted) {
             Toast.makeText(Profil.this, "Profil Inserted",
                     Toast.LENGTH_SHORT).show();
@@ -139,10 +147,24 @@ public class Profil extends AppCompatActivity {
     public void Formations(View view) {
         // Code à exécuter lorsque le bouton "Formations" est cliqué
 
+       if(id==0){
+           AddProfil();
+       }
+
         Intent intent = new Intent(Profil.this,
                 Formation.class);
        intent.putExtra("id",id);
         lanceur_foramtion.launch(intent);
+    }
+
+    public void Retour(View view) {
+        // Code à exécuter lorsque le bouton "Formations" est cliquéç
+
+        Intent intent = new Intent();
+        intent.putExtra("id", id);
+        setResult(RESULT_OK, intent);
+        finish();
+
     }
 
 

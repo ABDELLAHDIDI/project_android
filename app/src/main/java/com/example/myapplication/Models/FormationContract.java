@@ -28,11 +28,13 @@ public class FormationContract extends SQLiteOpenHelper {
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public FormationContract(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println("onCreate(SQLiteDatabase db) *********************************************************\n");
         db.execSQL(CREATE_TABLE);
     }
 

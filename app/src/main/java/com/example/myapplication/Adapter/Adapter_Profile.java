@@ -24,12 +24,20 @@ public class Adapter_Profile extends BaseAdapter {
     private ArrayList<Profile> tabEleve;
     private ProfileContract profileContract;
     private OnDeleteClickListener onDeleteClickListener;
+    private OnUpdateClickListener onUpdateClickListener;
 
-    public Adapter_Profile(Context context, ArrayList<Profile> tabEleve, ProfileContract profileContract, OnDeleteClickListener onDeleteClickListener) {
+    public Adapter_Profile(Context context, ArrayList<Profile> tabEleve, ProfileContract profileContract, OnDeleteClickListener onDeleteClickListener,OnUpdateClickListener onUpdateClickListener) {
         this.context = context;
         this.tabEleve = tabEleve;
         this.profileContract = profileContract;
         this.onDeleteClickListener = onDeleteClickListener;
+        this.onUpdateClickListener = onUpdateClickListener;
+    }
+    public Adapter_Profile(Context context, ArrayList<Profile> tabEleve, ProfileContract profileContract,OnUpdateClickListener onUpdateClickListener) {
+        this.context = context;
+        this.tabEleve = tabEleve;
+        this.profileContract = profileContract;
+        this.onUpdateClickListener = onUpdateClickListener;
     }
 
     @Override
@@ -61,6 +69,7 @@ public class Adapter_Profile extends BaseAdapter {
             viewHolder.txtNom = v.findViewById(R.id.txtNom);
             viewHolder.imgIcone = v.findViewById(R.id.imgIcone);
             viewHolder.deleteButton = v.findViewById(R.id.btnDelete1);
+            viewHolder.updateButton = v.findViewById(R.id.btnUpdate);
             v.setTag(viewHolder);
         }
 
@@ -85,6 +94,25 @@ public class Adapter_Profile extends BaseAdapter {
                     public void onClick(DialogInterface dialog, int which) {
                         if (onDeleteClickListener != null) {
                             onDeleteClickListener.onDeleteClick(position);
+                        }
+                    }
+                });
+                builder.setNegativeButton("Annuler", null);
+                builder.show();
+            }
+        });
+        viewHolder.updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Profile profile = tabEleve.get(position);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Confirmation");
+                builder.setMessage("Voulez-vous modifier l'élève avec l'ID " + profile.getId() + "?");
+                builder.setPositiveButton("modifier", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (onUpdateClickListener != null) {
+                            onUpdateClickListener.onUpdateClick(position);
                         }
                     }
                 });
@@ -117,6 +145,8 @@ public class Adapter_Profile extends BaseAdapter {
         });
 
         return v;
+
+
     }
 
     static class ViewHolder {
@@ -124,9 +154,14 @@ public class Adapter_Profile extends BaseAdapter {
         TextView txtNom;
         ImageView imgIcone;
         Button deleteButton;
+        Button updateButton;
     }
 
     public interface OnDeleteClickListener {
         void onDeleteClick(int position);
+    }
+
+    public interface OnUpdateClickListener {
+        void onUpdateClick(int position);
     }
 }

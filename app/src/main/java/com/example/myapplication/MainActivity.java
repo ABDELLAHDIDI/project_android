@@ -1,8 +1,13 @@
 package com.example.myapplication;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +21,28 @@ import com.example.myapplication.Models.ProfileContract;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements Adapter_Profile.OnDeleteClickListener {
+public class MainActivity extends AppCompatActivity implements Adapter_Profile.OnDeleteClickListener,Adapter_Profile.OnUpdateClickListener {
     private ListView lstEleves;
     private ArrayList<Profile> arrayEleves;
     private Adapter_Profile AProfile;
     private ProfileContract profileContract;
+
+
+    ActivityResultLauncher<Intent> lanceur_profil = registerForActivityResult
+            (new ActivityResultContracts.StartActivityForResult(),
+                    new ActivityResultCallback<ActivityResult>() {
+                        @Override
+                        public void onActivityResult(ActivityResult result) {
+
+                            Toast.makeText(MainActivity.this, "Profile",
+                                    Toast.LENGTH_LONG).show();
+
+                            AProfile.notifyDataSetChanged();
+                            populateData();
+
+
+                        }
+                    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements Adapter_Profile.O
 
         populateData();
 
-        AProfile = new Adapter_Profile(this, arrayEleves, profileContract, this);
+        AProfile = new Adapter_Profile(this, arrayEleves, profileContract, this,this);
         lstEleves.setAdapter(AProfile);
 
         lstEleves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements Adapter_Profile.O
         Cursor cursor = profileContract.getAllProfiles();
 
         if (cursor != null && cursor.moveToFirst()) {
+            arrayEleves.clear();
             do {
                 @SuppressLint("Range") String id = cursor.getString(cursor.getColumnIndex(ProfileContract.COL_1));
                 @SuppressLint("Range") String nom = cursor.getString(cursor.getColumnIndex(ProfileContract.COL_2));
@@ -86,4 +109,24 @@ public class MainActivity extends AppCompatActivity implements Adapter_Profile.O
             Toast.makeText(this, "Failed to delete profile", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void onUpdateClick(int position) {
+
+        Profile profile = arrayEleves.get(position);
+
+        Intent intent = new Intent(MainActivity.this,
+                Profil.class);
+        intent.putExtra("id", Integer.parseInt(profile.getId()));
+        lanceur_profil.launch(intent);
+    }
+    public void add(View view ){
+
+        Intent intent = new Intent(MainActivity.this,
+                Profil.class);
+        intent.putExtra("id", 0);
+             lanceur_profil.launch(intent);
+
+    }
+
 }

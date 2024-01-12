@@ -34,7 +34,7 @@ public class ProfileContract extends SQLiteOpenHelper {
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public ProfileContract(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
     }
 
     @Override

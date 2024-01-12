@@ -47,6 +47,8 @@ public class Formation extends AppCompatActivity {
 
         ProfileID=getIntent().getIntExtra("id",0);
 
+        System.out.println("ProfileID******************************************************\n"+ProfileID);
+
         GetFromations();
         delete();
 
@@ -83,24 +85,19 @@ db_F.insertFormation(libelle,annee,institue,ProfileID);
     }
 
     public void GetFromations(){
-
         Toast.makeText(Formation.this, "GetAllData():OnClickListener",
                 Toast.LENGTH_SHORT).show();
         Cursor res = db_F.getAllFormationsById(ProfileID);
         if(res.getCount()==0){
-
             Toast.makeText(Formation.this, "No Data Was Found",
                     Toast.LENGTH_SHORT).show();
             return;
         }else{
-
             while (res.moveToNext()){
                 formationsList.add(new Template_Formation(res.getString(0),
                         res.getString(1) , res.getString(2)));
             }
-
             adapterFormation.notifyDataSetChanged();
-
         }
         res.close();
 

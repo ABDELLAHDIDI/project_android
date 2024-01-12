@@ -10,10 +10,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 
 import com.example.myapplication.Adapter.Adapter_Profile;
 import com.example.myapplication.Adapter.Profile;
@@ -21,7 +23,8 @@ import com.example.myapplication.Models.ProfileContract;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements Adapter_Profile.OnDeleteClickListener,Adapter_Profile.OnUpdateClickListener {
+public class MainActivity extends AppCompatActivity implements Adapter_Profile.OnDeleteClickListener
+        ,Adapter_Profile.OnUpdateClickListener {
     private ListView lstEleves;
     private ArrayList<Profile> arrayEleves;
     private Adapter_Profile AProfile;
@@ -29,8 +32,7 @@ public class MainActivity extends AppCompatActivity implements Adapter_Profile.O
 
 
     ActivityResultLauncher<Intent> lanceur_profil = registerForActivityResult
-            (new ActivityResultContracts.StartActivityForResult(),
-                    new ActivityResultCallback<ActivityResult>() {
+            (new ActivityResultContracts.StartActivityForResult(),  new ActivityResultCallback<ActivityResult>() {
                         @Override
                         public void onActivityResult(ActivityResult result) {
 
@@ -55,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements Adapter_Profile.O
 
         populateData();
 
-        AProfile = new Adapter_Profile(this, arrayEleves, profileContract, this,this);
+        AProfile = new Adapter_Profile(this, arrayEleves, profileContract,
+                this,this);
         lstEleves.setAdapter(AProfile);
 
         lstEleves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -100,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements Adapter_Profile.O
     public void onDeleteClick(int position) {
         Profile profile = arrayEleves.get(position);
         boolean deleted = profileContract.deleteProfile(profile.getId());
+
 
         if (deleted) {
             arrayEleves.remove(position);

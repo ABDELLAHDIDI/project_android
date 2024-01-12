@@ -23,12 +23,12 @@ public class FormationContract extends SQLiteOpenHelper {
                     col_4 + " TEXT," +
                     col_5 + " INTEGER," + // Colonne pour l'ID du profil
                     "FOREIGN KEY (" + col_5 + ") REFERENCES " +
-                    ProfileContract.TABLE_NAME + "(" + ProfileContract.COL_1 + "))";
+                    ProfileContract.TABLE_NAME + "(" + ProfileContract.COL_1 + ") ON DELETE CASCADE )";
 
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public FormationContract(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 5);
 
     }
 

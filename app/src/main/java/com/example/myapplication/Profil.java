@@ -76,19 +76,29 @@ public class Profil extends AppCompatActivity {
         Toast.makeText(Profil.this, "onCreate \n"+id,
                 Toast.LENGTH_SHORT).show();
 
-       GetProfil();
+    GetProfil();
 
     }
 
 
-    public void AddProfil() {
+    public boolean AddProfil() {
+        boolean isInserted = false ;
 
-        boolean
-                isInserted = db_Profile.insertProfile(
-                tNom.getText().toString(),tPrenom.getText().toString()
-                ,tEmail.getText().toString(), Integer.parseInt(tAge.getText().toString())
-                ,tFiliere.getText().toString()
-        );
+   if( tNom.getText().toString().isEmpty() || tNom.getText().toString().isEmpty()
+           ||tPrenom.getText().toString().isEmpty() ||  tEmail.getText().toString().isEmpty()
+           ||tAge.getText().toString().isEmpty() || tFiliere.getText().toString().isEmpty()  ){
+
+       Toast.makeText(Profil.this, "il faut remplire tous les champs !",
+               Toast.LENGTH_SHORT).show();
+
+   }
+   else {
+       isInserted = db_Profile.insertProfile(
+               tNom.getText().toString(),tPrenom.getText().toString()
+               ,tEmail.getText().toString(), Integer.parseInt(tAge.getText().toString())
+               ,tFiliere.getText().toString()
+       );
+   }
         if (isInserted) {
             Toast.makeText(Profil.this, "Profil Inserted",
                     Toast.LENGTH_SHORT).show();
@@ -96,6 +106,7 @@ public class Profil extends AppCompatActivity {
             Toast.makeText(Profil.this, "Profil Not Inserted",
                     Toast.LENGTH_SHORT).show();
         }
+        return isInserted;
 
     }
 
@@ -146,15 +157,25 @@ public class Profil extends AppCompatActivity {
 
     public void Formations(View view) {
         // Code à exécuter lorsque le bouton "Formations" est cliqué
-
+boolean v=false ;
        if(id==0){
-           AddProfil();
+           v=  AddProfil();
+           id=db_Profile.getMaxProfileId();
+       }
+       else {
+           Intent intent = new Intent(Profil.this,
+                   Formation.class);
+           intent.putExtra("id",id);
+           lanceur_foramtion.launch(intent);
        }
 
-        Intent intent = new Intent(Profil.this,
-                Formation.class);
-       intent.putExtra("id",id);
-        lanceur_foramtion.launch(intent);
+     if(v){
+         Intent intent = new Intent(Profil.this,
+                 Formation.class);
+         intent.putExtra("id",id);
+         lanceur_foramtion.launch(intent);
+     }
+
     }
 
     public void Retour(View view) {

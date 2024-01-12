@@ -11,6 +11,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Adapter.Adapter_Formation;
@@ -27,6 +31,31 @@ public class Formation extends AppCompatActivity {
     private ArrayList<Template_Formation> formationsList;
     private FormationContract db_F;
     private int ProfileID=  0;
+
+    ActivityResultLauncher<Intent> lanceur_experience = registerForActivityResult
+            (new ActivityResultContracts.StartActivityForResult(),
+                    new ActivityResultCallback<ActivityResult>() {
+                        @Override
+                        public void onActivityResult(ActivityResult result) {
+
+                            Toast.makeText(Formation.this, "Profile",
+                                    Toast.LENGTH_LONG).show();
+
+                            if (result != null) {
+                                if (result.getData() != null) {
+                                    Toast.makeText(Formation.this, "Action validée",
+                                            Toast.LENGTH_LONG).show();
+                                    Intent intent = result.getData();
+                                    ProfileID = intent.getIntExtra("id", 1);
+
+                                }
+
+
+                            }
+                        }
+                    });
+
+
 
 
     @Override
@@ -46,6 +75,8 @@ public class Formation extends AppCompatActivity {
         db_F = new FormationContract(this);
 
         ProfileID=getIntent().getIntExtra("id",0);
+
+
 
         System.out.println("ProfileID******************************************************\n"+ProfileID);
 
@@ -100,9 +131,6 @@ db_F.insertFormation(libelle,annee,institue,ProfileID);
             adapterFormation.notifyDataSetChanged();
         }
         res.close();
-
-
-
     }
 
     public void delete(){
@@ -159,6 +187,10 @@ db_F.insertFormation(libelle,annee,institue,ProfileID);
     public void vers_diplome(View view) {
 
 
+        Intent intent = new Intent(Formation.this,
+                Experience.class);
+        intent.putExtra("id",ProfileID);
+        lanceur_experience.launch(intent);
 
     }
 

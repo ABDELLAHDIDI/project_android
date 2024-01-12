@@ -33,4 +33,18 @@
     <string name="enter_institue">Entrez l\'institut</string>
     <string name="retour">Retour</string>
     <string name="aller_diplome">vers diplome</string>
+
+<!--   experience  -->
+
+    <string name="poste_label">Poste:</string>
+    <string name="enter_poste">Entrez le poste</string>
+
+    <string name="entreprise_label">Entreprise:</string>
+    <string name="enter_entreprise">Entrez l\'entreprise</string>
+
+    <string name="duree_label">Dur\ée:</string>
+    <string name="enter_duree">Entrez la dur\ée</string>
+
+
+
 </resources>

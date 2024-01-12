@@ -34,7 +34,7 @@ public class ProfileContract extends SQLiteOpenHelper {
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public ProfileContract(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 5);
     }
 
     @Override
@@ -130,4 +130,19 @@ public class ProfileContract extends SQLiteOpenHelper {
     public boolean getProfilIdByEmail(String string) {
         return true;
     }
+
+    public int getMaxProfileId() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int maxId = -1;
+
+        Cursor cursor = db.rawQuery("SELECT MAX(" + COL_1 + ") FROM " + TABLE_NAME, null);
+
+        if (cursor.moveToFirst()) {
+            maxId = cursor.getInt(0);
+        }
+
+        cursor.close();
+        return maxId;
+    }
+
 }

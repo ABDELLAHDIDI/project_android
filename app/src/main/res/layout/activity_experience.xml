@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Experience">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Ajouter Experience Section -->
+        <TextView
+            android:id="@+id/tvAddExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter une Expérience"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edtAddPoste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Poste"/>
+
+        <EditText
+            android:id="@+id/edtAddEntreprise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entreprise"/>
+
+        <EditText
+            android:id="@+id/edtAddDuree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Durée"/>
+
+        <Button
+            android:id="@+id/btnAjouterExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter Expérience"
+            android:layout_marginTop="8dp"
+            android:onClick="Add"/>
+
+        <!-- Liste des Experiences -->
+        <ListView
+            android:id="@+id/listViewExperiences"
+            android:layout_width="match_parent"
+            android:layout_height="413dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="Retour_Fromation"
+                android:text="Retour" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="competences"
+                android:text="vers-competences" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
